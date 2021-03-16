@@ -1,4 +1,4 @@
-package configureservice
+package application
 
 import (
 	"fmt"

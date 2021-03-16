@@ -1,44 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/IBM/go-sdk-core/v5/core"
 	"github.com/IBM/push-notifications-go-sdk/example/application"
 	"github.com/IBM/push-notifications-go-sdk/pushservicev1"
 )
-
-func getSettings(appID string, app *pushservicev1.PushServiceV1) {
-
-	getSettingsOptions := &pushservicev1.GetSettingsOptions{
-		ApplicationID: &appID,
-	}
-
-	result, response, err := app.GetSettings(getSettingsOptions)
-
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	if response.StatusCode == 200 {
-		if result.ApnsConf != nil {
-			fmt.Println(*result.ApnsConf)
-		}
-		if result.GcmConf != nil {
-			fmt.Println(*result.GcmConf)
-		}
-		if result.FirefoxWebConf != nil {
-			fmt.Println(*result.FirefoxWebConf)
-		}
-		if result.ChromeWebConf != nil {
-			fmt.Println(*result.ChromeWebConf)
-		}
-		if result.SafariWebConf != nil {
-			fmt.Println(*result.SafariWebConf)
-		}
-	}
-}
 
 func main() {
 
@@ -91,8 +59,6 @@ func main() {
 	application.SaveSafariConfiguration(appID, app)
 
 	application.GetSafariConfiguration(appID, app)
-
-	getSettings(appID, app)
 
 	application.DeleteGcmConfiguration(appID, app)
 

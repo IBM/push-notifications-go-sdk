@@ -17,9 +17,10 @@
 package pushservicev1_test
 
 import (
+	"testing"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"testing"
 )
 
 func TestPushServiceV1(t *testing.T) {
